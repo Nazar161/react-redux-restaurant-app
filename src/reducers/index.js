@@ -9,6 +9,7 @@ const initialState = {
     tel: '',
     email: '',
     address: '',
+    burgerMenuToggled: false 
 }
 
 const infoReducer = (state=initialState, action) => {
@@ -115,7 +116,12 @@ const infoReducer = (state=initialState, action) => {
             return {
                 ...state,
                 address: action.payload
-            }        
+            }
+        case'BURGER_TOGGLED':
+            return {
+                ...state,
+                burgerMenuToggled: !state.burgerMenuToggled
+            }       
         default:
             return state;    
     }

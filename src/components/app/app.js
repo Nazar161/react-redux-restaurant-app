@@ -1,6 +1,7 @@
 import React from 'react';
 import {MainPage, CartPage, ItemPage, CheckoutPage} from '../pages';
 import AppHeader from '../app-header';
+import BurgerMenu from '../burger-menu';
 import {Route, Switch} from 'react-router-dom';
 
 
@@ -17,6 +18,7 @@ const App = () => {
                 <Route path='/checkoutpage' exact component={CheckoutPage}/>
                 <Route path = '/:id' exact component ={ItemPage}/>
             </Switch>
+            <BurgerMenu/>
         </div>
     )
 }

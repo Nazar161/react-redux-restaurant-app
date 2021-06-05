@@ -69,6 +69,12 @@ const addressInput = (value) => {
     }
 }
 
+const burgerToggled = () => {
+    return {
+        type: 'BURGER_TOGGLED'
+    }
+}
+
 export {
     menuLoaded, 
     menuRequested, 
@@ -80,5 +86,6 @@ export {
     nameInput,
     telInput,
     emailInput,
-    addressInput
+    addressInput,
+    burgerToggled
 };
