@@ -5,11 +5,8 @@ const initialState = {
     items: [],
     total: 0,
     postingDatas: null,
-    name: '',
-    tel: '',
-    email: '',
-    address: '',
-    burgerMenuToggled: false 
+    bankResponse: false,
+    burgerMenuToggled: false
 }
 
 const infoReducer = (state=initialState, action) => {
@@ -97,25 +94,16 @@ const infoReducer = (state=initialState, action) => {
                 ...state,
                 postingDatas: order
             }
-        case 'NAME_INPUT':
+        case 'ADD_ORDER_INFO':
             return {
                 ...state,
-                name: action.payload
+                postingDatas: {...action.payload, ...state.postingDatas}
             }
-        case 'TEL_INPUT':
-            return {
+        case 'BANK_RESPONSE':
+            return{
                 ...state,
-                tel: action.payload
-            }
-        case 'EMAIL_INPUT':
-            return {
-                ...state,
-                email: action.payload
-            }
-        case 'ADDRESS_INPUT':
-            return {
-                ...state,
-                address: action.payload
+                bankResponse: action.payload,
+                postingDatas: {...state.postingDatas, ...action.payload}
             }
         case'BURGER_TOGGLED':
             return {

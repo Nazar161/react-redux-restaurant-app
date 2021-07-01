@@ -15,6 +15,10 @@ export default class RestoService {
         const res = await this.getResource('/menu/');
         return res;
     }
+    getBankRes = async () => {
+        const res = await this.getResource('/bank/');
+        return res;
+    }
 
     postResource = async (url, data) => {
         const res = await fetch(`http://localhost:3000${url}`, {

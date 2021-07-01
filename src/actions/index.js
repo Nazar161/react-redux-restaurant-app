@@ -43,31 +43,19 @@ const postingOrders = () => {
     }
 }
 
-const nameInput = (value) => {
+const addingOrderInfo = (formInfo) => {
     return {
-        type: 'NAME_INPUT',
-        payload: value
-    }
-}
-const telInput = (value) => {
-    return {
-        type: 'TEL_INPUT',
-        payload: value
-    }
-}
-const emailInput = (value) => {
-    return {
-        type: 'EMAIL_INPUT',
-        payload: value
+        type: 'ADD_ORDER_INFO',
+        payload: formInfo
     }
 }
 
-const addressInput = (value) => {
+const addingBankResponse = (bankResponse) => {
     return {
-        type: 'ADDRESS_INPUT',
-        payload: value
+        type: 'BANK_RESPONSE',
+        payload: bankResponse
     }
-}
+} 
 
 const burgerToggled = () => {
     return {
@@ -83,9 +71,7 @@ export {
     deleteFromCart, 
     changingTotal, 
     postingOrders,
-    nameInput,
-    telInput,
-    emailInput,
-    addressInput,
-    burgerToggled
+    burgerToggled,
+    addingOrderInfo,
+    addingBankResponse
 };

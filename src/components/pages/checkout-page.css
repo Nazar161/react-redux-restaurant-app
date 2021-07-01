@@ -56,6 +56,17 @@
     outline: none;
 }
 
+.comments {
+    height: 75px;
+}
+
+.checkout-page {
+    width: 60%;
+}
+.payment-page {
+    color: cornsilk
+}
+
 .form-style-input:focus {
     background-color: lightblue;
 }

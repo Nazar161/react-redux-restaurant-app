@@ -10,7 +10,7 @@ const CartTable = ({items, deleteFromCart, changingTotal, postingDatas, RestoSer
     return (
         <>
             <div className="cart__title">Ваш заказ:</div>
-            <Link to="/checkoutpage" onClick={() => postingOrders()}  className="cart__btn-pay">Оформить заказ</Link>
+            <Link to="/checkoutpage" onClick={postingOrders}  className="cart__btn-pay">Оформить заказ</Link>
             {/* <button onClick={() => RestoService.postOrders(postingDatas)} type='submit' className="cart__btn-pay">second</button> */}
             <div className="cart__list">
                 {

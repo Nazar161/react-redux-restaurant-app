@@ -1,68 +1,102 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './checkout-page.css';
 import {connect} from 'react-redux';
-import {nameInput, telInput, emailInput, addressInput} from '../../actions';
+import { reduxForm, Field} from 'redux-form';
+import {addingOrderInfo} from '../../actions';
+import Payment from '../payment/Payment'
 
 
-const CheckoutPage = ({name, tel, email, address}) => {
+const CheckoutPage = ({addingOrderInfo, datass}) => {
+    const [paymentPage, setPaymentPage] = useState('order-form')
+
+    const onAddOrderInfo =  (datas) => {
+        addingOrderInfo(datas);
+        setPaymentPage('payment');
+    }
+
+    let header;
+    if (paymentPage === 'order-form') {
+        header = 'Оформление заказа:'
+    } else {
+        header = 'Оплата'
+    }
 
     return(
         <div className='checkout_page'>
             <div className='checkout_block'>
-                <div className='checkout_block_header'><span>Оформление заказа:</span></div>
-                <form className='checkout_block_form'>
-                    <div className='form-style'>
-                        <label>Ваше имя:</label>
-                        <input className='form-style-input' 
-                                type='text' 
-                                placeholder='Имя'
-                                onChange={(e) => nameInput(e.target.value)}
-                                />
-                    </div>
-                    <div className='form-style'>
-                        <label>Ваш номер телефона:</label>
-                        <input className='form-style-input' 
-                                type='tel' 
-                                placeholder='8 (777) 777-77-77'
-                                onChange={(e) => telInput(e.target.value)}
-                                />
-                    </div>
-                    <div className='form-style'>
-                        <label>Ваша почта:</label>
-                        <input className='form-style-input' 
-                            type='email' 
-                            placeholder='example@gmail.com'
-                            onChange={(e) => emailInput(e.target.value)}
-                            />
-                    </div>
-                    <div className='form-style'>
-                        <label>Адрес доставки:</label>
-                        <input className='form-style-input' 
-                                type='text' 
-                                placeholder='Ваш адрес ...'
-                                onChange={(e) => addressInput(e.target.value)}
-                                />
-                    </div>
-                </form>
+                <div className='checkout_block_header'><span>{header}</span></div>
+                {paymentPage === 'order-form' && <OrderReduxForm onSubmit={onAddOrderInfo}/>}
+                {paymentPage === 'payment' && <Payment/>}
             </div>
         </div>
     )
 }
 
-const mapStateToProps = ({name, tel, email, address}) => {
+const mapStateToProps = (state) => {
     return {
-        name,
-        tel,
-        email,
-        address
+        datass: state.infoReducer.postingDatas,
     }
 }
 
 const mapDispatchToProps = {
-    nameInput, 
-    telInput, 
-    emailInput, 
-    addressInput
+    addingOrderInfo
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CheckoutPage);
+
+
+
+const OrderForm = ({handleSubmit, reset}) => {
+    return(
+        <form className='checkout_block_form' onSubmit={handleSubmit}>
+            <div className='form-style'>
+                <label>Ваше имя: *</label>
+                <Field className='form-style-input' 
+                        type='text'
+                        name='name'
+                        placeholder='Имя'
+                        component='input'
+                        />
+            </div>
+            <div className='form-style'>
+                <label>Ваш номер телефона: *</label>
+                <Field className='form-style-input' 
+                        type='tel' 
+                        name='phone'
+                        placeholder='8 (777) 777-77-77'
+                        component='input'
+                        />
+            </div>
+            <div className='form-style'>
+                <label>Ваша почта:</label>
+                <Field className='form-style-input' 
+                        type='email' 
+                        name='email'
+                        placeholder='example@gmail.com'
+                        component='input'
+                    />
+            </div>
+            <div className='form-style'>
+                <label>Адрес доставки: *</label>
+                <Field className='form-style-input' 
+                        type='text' 
+                        name='address'
+                        placeholder='Ваш адрес ...'
+                        component='input'
+                        />
+            </div>
+            <div className='form-style'>
+                <label>Ваши Пожелания:</label>
+                <Field className='form-style-input comments' 
+                        type='text' 
+                        name='comments'
+                        placeholder='Ваши Пожелания...'
+                        component='textarea'
+                        />
+            </div>
+            <button className="cart__btn-pay checkout-page">Подтвердить и перейти к оплате</button>
+        </form>
+    )
+}
+
+const OrderReduxForm = reduxForm({form: 'order'})(OrderForm)
