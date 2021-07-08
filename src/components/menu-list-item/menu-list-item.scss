@@ -53,3 +53,18 @@
         color: black;
     }
 }
+.btn-back {
+    background-color: rgba(202, 14, 14, 0.6);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    border: none;
+    text-decoration: none;
+    padding: 12px 10px;
+    margin-left: 45px;
+}
+
+.btn-back:hover {
+    background-color: rgba(202, 14, 14, 1);
+}
