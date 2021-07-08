@@ -6,15 +6,19 @@ const initialState = {
     total: 0,
     postingDatas: null,
     bankResponse: false,
-    burgerMenuToggled: false
+    burgerMenuToggled: false,
+    search: '',
+    activeMenu: []
 }
 
 const infoReducer = (state=initialState, action) => {
     switch (action.type) {
         case 'MENU_LOADED':
+            // const filteredList = action.payload.filter(item => item.title.toLowerCase().includes(state.search.toLowerCase()))
             return {
                 ...state,
                 menu: action.payload,
+                activeMenu: action.payload,
                 loading: false,
                 error: false
             };
@@ -109,7 +113,23 @@ const infoReducer = (state=initialState, action) => {
             return {
                 ...state,
                 burgerMenuToggled: !state.burgerMenuToggled
-            }       
+            }
+        case 'SEARCH_ITEM':
+            return {
+                ...state,
+                search: action.payload,
+            }
+        case 'SHOWING_SEARCH_ITEM':
+            return {
+                ...state,
+                activeMenu: state.menu.filter(item => item.title.toLowerCase().includes(state.search.toLowerCase()))
+            }
+        case 'SELECTED_SERACH_ITEM':
+            return {
+                ...state,
+                search: state.activeMenu.filter(item => item.id === action.payload)[0].title,
+                activeMenu: state.activeMenu.filter(item => item.id === action.payload)
+            }
         default:
             return state;    
     }
