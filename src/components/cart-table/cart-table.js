@@ -5,13 +5,24 @@ import {deleteFromCart, changingTotal, postingOrders} from '../../actions'
 import WithRestoService from '../hoc'
 import { Link } from 'react-router-dom';
 
-const CartTable = ({items, deleteFromCart, changingTotal, postingDatas, RestoService, postingOrders}) => {
+const CartTable = ({items, deleteFromCart, changingTotal, postingOrders}) => {
+
+    if(items.length === 0) {
+        return (
+            <>
+                <div className="cart__title">В корзине нет товаров</div>
+                <Link to='/' className="cart__btn-pay back-to-menu">Вернуться в меню</Link>
+            </>
+        )
+    }
     
     return (
         <>
             <div className="cart__title">Ваш заказ:</div>
-            <Link to="/checkoutpage" onClick={postingOrders}  className="cart__btn-pay">Оформить заказ</Link>
-            {/* <button onClick={() => RestoService.postOrders(postingDatas)} type='submit' className="cart__btn-pay">second</button> */}
+            <div className="cart__div-links">
+                <Link to='/' className="cart__btn-pay back-to-menu">Вернуться в меню</Link>
+                <Link to="/checkoutpage" onClick={postingOrders}  className="cart__btn-pay">Оформить заказ</Link>
+            </div>
             <div className="cart__list">
                 {
                     items.map(item => {

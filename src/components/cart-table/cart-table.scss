@@ -74,4 +74,19 @@
     &__btn-pay:hover {
         background-color: rgba(14, 149, 202, 1);
     }
+    &__div-links {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35%;
+    }
+}
+
+.back-to-menu {
+    background-color: rgba(202, 14, 14, 0.6);
+}
+
+.back-to-menu:hover {
+    background-color: rgba(202, 14, 14, 1);
 }
