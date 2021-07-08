@@ -3,8 +3,9 @@ import './checkout-page.css';
 import {connect} from 'react-redux';
 import { reduxForm, Field} from 'redux-form';
 import {addingOrderInfo} from '../../actions';
-import Payment from '../payment/Payment'
-
+import Payment from '../payment/Payment';
+import { required, maxLengthCreator} from '../utils/validators';
+import nameInput from '../form-components/name-input';
 
 const CheckoutPage = ({addingOrderInfo, datass}) => {
     const [paymentPage, setPaymentPage] = useState('order-form')
@@ -45,17 +46,20 @@ const mapDispatchToProps = {
 export default connect(mapStateToProps, mapDispatchToProps)(CheckoutPage);
 
 
+const maxLength15 = maxLengthCreator(15);
+const maxLength250 = maxLengthCreator(250)
 
 const OrderForm = ({handleSubmit, reset}) => {
     return(
         <form className='checkout_block_form' onSubmit={handleSubmit}>
             <div className='form-style'>
                 <label>Ваше имя: *</label>
-                <Field className='form-style-input' 
+                <Field  className='form-style-input'
                         type='text'
                         name='name'
                         placeholder='Имя'
-                        component='input'
+                        component={nameInput}
+                        validate={[required, maxLength15]}
                         />
             </div>
             <div className='form-style'>
@@ -65,6 +69,7 @@ const OrderForm = ({handleSubmit, reset}) => {
                         name='phone'
                         placeholder='8 (777) 777-77-77'
                         component='input'
+                        validate={[required]}
                         />
             </div>
             <div className='form-style'>
@@ -83,6 +88,7 @@ const OrderForm = ({handleSubmit, reset}) => {
                         name='address'
                         placeholder='Ваш адрес ...'
                         component='input'
+                        validate={[required]}
                         />
             </div>
             <div className='form-style'>
@@ -92,6 +98,7 @@ const OrderForm = ({handleSubmit, reset}) => {
                         name='comments'
                         placeholder='Ваши Пожелания...'
                         component='textarea'
+                        validate={[maxLength250]}
                         />
             </div>
             <button className="cart__btn-pay checkout-page">Подтвердить и перейти к оплате</button>

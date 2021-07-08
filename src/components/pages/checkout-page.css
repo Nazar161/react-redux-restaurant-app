@@ -54,7 +54,12 @@
     width: 230px;
     box-sizing: border-box;
     outline: none;
+    border: none
 }
+
+/* .form-style-input .error {
+    border-color: crimson ;
+} */
 
 .comments {
     height: 75px;
