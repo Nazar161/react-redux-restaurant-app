@@ -62,7 +62,24 @@ const burgerToggled = () => {
         type: 'BURGER_TOGGLED'
     }
 }
+const searchItem = (search) => {
+    return {
+        type: 'SEARCH_ITEM',
+        payload: search
+    }
+}
+const showingSearchItem = () => {
+    return {
+        type: 'SHOWING_SEARCH_ITEM'
+    }
+}
 
+const selectedSearchItem = (idSearchItem) => {
+    return {
+        type: 'SELECTED_SERACH_ITEM',
+        payload: idSearchItem
+    }
+}
 export {
     menuLoaded, 
     menuRequested, 
@@ -73,5 +90,8 @@ export {
     postingOrders,
     burgerToggled,
     addingOrderInfo,
-    addingBankResponse
+    addingBankResponse,
+    searchItem,
+    showingSearchItem,
+    selectedSearchItem
 };
