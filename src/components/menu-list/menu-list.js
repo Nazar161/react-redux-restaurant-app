@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useEffect} from 'react';
 import MenuListItem from '../menu-list-item';
 import {connect} from 'react-redux';
 import WithRestoService from '../hoc';
@@ -8,19 +8,27 @@ import Error from '../error';
 
 import './menu-list.scss';
 
-class MenuList extends Component {
+// class MenuList extends Component {
+const MenuList = ({menuItems, loading, error, addedToCart, changingTotal, RestoService, menuRequested, menuLoaded, menuErrored}) => {
 
-    componentDidMount() {
-        this.props.menuRequested();
+    // componentDidMount() {
+    //     this.props.menuRequested();
 
-        const {RestoService} = this.props;
+    //     const {RestoService} = this.props;
+    //     RestoService.getMenuItems()
+    //         .then(res => this.props.menuLoaded(res))
+    //         .catch(this.props.menuErrored)
+    // }
+    useEffect(() => {
+        menuRequested();
         RestoService.getMenuItems()
-            .then(res => this.props.menuLoaded(res))
-            .catch(this.props.menuErrored)
-    }
+            .then(res => menuLoaded(res))
+            .catch(menuErrored)
+    },[])
+    
 
-    render() {
-        const {menuItems, loading, error, addedToCart, changingTotal} = this.props;
+    // render() {
+        // const {menuItems, loading, error, addedToCart, changingTotal} = this.props;
 
         if(loading) {
             return <Spinner/>
@@ -42,12 +50,12 @@ class MenuList extends Component {
                 }
             </ul>
         )
-    }
+    // }
 };
 
 const mapStateToProps = (store) => {
     return {
-        menuItems: store.infoReducer.menu,
+        menuItems: store.infoReducer.activeMenu,
         loading: store.infoReducer.loading,
         error: store.infoReducer.error
     }
@@ -58,7 +66,7 @@ const mapDispatchToProps = {
     menuRequested,
     menuErrored,
     addedToCart,
-    changingTotal
+    changingTotal,
 };
 
 
