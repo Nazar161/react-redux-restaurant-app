@@ -4,8 +4,9 @@ import {connect} from 'react-redux';
 import { reduxForm, Field} from 'redux-form';
 import {addingOrderInfo} from '../../actions';
 import Payment from '../payment/Payment';
-import { required, maxLengthCreator} from '../utils/validators';
-import nameInput from '../form-components/name-input';
+import { required, maxLengthCreator, emailValidation} from '../utils/validators';
+import SimpleInput from '../form-components/simple-input';
+import { createTextMask } from 'redux-form-input-masks';
 
 const CheckoutPage = ({addingOrderInfo, datass}) => {
     const [paymentPage, setPaymentPage] = useState('order-form')
@@ -47,9 +48,13 @@ export default connect(mapStateToProps, mapDispatchToProps)(CheckoutPage);
 
 
 const maxLength15 = maxLengthCreator(15);
-const maxLength250 = maxLengthCreator(250)
+const maxLength100 = maxLengthCreator(100);
 
-const OrderForm = ({handleSubmit, reset}) => {
+const phoneMask = createTextMask({
+    pattern: '+7(999) 999-99-99',
+  });
+
+const OrderForm = ({handleSubmit, submitting, pristine}) => {
     return(
         <form className='checkout_block_form' onSubmit={handleSubmit}>
             <div className='form-style'>
@@ -58,7 +63,7 @@ const OrderForm = ({handleSubmit, reset}) => {
                         type='text'
                         name='name'
                         placeholder='Имя'
-                        component={nameInput}
+                        component={SimpleInput}
                         validate={[required, maxLength15]}
                         />
             </div>
@@ -68,8 +73,9 @@ const OrderForm = ({handleSubmit, reset}) => {
                         type='tel' 
                         name='phone'
                         placeholder='8 (777) 777-77-77'
-                        component='input'
+                        component={SimpleInput}
                         validate={[required]}
+                        {...phoneMask}
                         />
             </div>
             <div className='form-style'>
@@ -78,7 +84,8 @@ const OrderForm = ({handleSubmit, reset}) => {
                         type='email' 
                         name='email'
                         placeholder='example@gmail.com'
-                        component='input'
+                        component={SimpleInput}
+                        validate={[emailValidation]}
                     />
             </div>
             <div className='form-style'>
@@ -87,7 +94,7 @@ const OrderForm = ({handleSubmit, reset}) => {
                         type='text' 
                         name='address'
                         placeholder='Ваш адрес ...'
-                        component='input'
+                        component={SimpleInput}
                         validate={[required]}
                         />
             </div>
@@ -98,10 +105,17 @@ const OrderForm = ({handleSubmit, reset}) => {
                         name='comments'
                         placeholder='Ваши Пожелания...'
                         component='textarea'
-                        validate={[maxLength250]}
+                        validate={[maxLength100]}
                         />
             </div>
-            <button className="cart__btn-pay checkout-page">Подтвердить и перейти к оплате</button>
+            <button 
+                className="cart__btn-pay checkout-page" 
+                type='submit' disabled={pristine || submitting} 
+                style={{backgroundColor: pristine ? 'rgba(180, 189, 192, 0.6)' : 'rgba(14, 149, 202, 0.6)',
+                        cursor: pristine ? 'default' : 'pointer',
+                        color: pristine ? 'black' : 'cornsilk'}}
+                >Подтвердить и перейти к оплате
+                </button>
         </form>
     )
 }
