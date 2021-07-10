@@ -153,6 +153,38 @@
         }
       ],
       "id": 4
+    },
+    {
+      "name": "Назарет",
+      "phone": "9896124533",
+      "email": "nazaret155@mail.ru",
+      "address": "г. Ростов-на-Дону, пер. Белоусова 1/4",
+      "id_order": 7149027,
+      "total": 35,
+      "items": [
+        {
+          "title": "Cesar salad",
+          "url": "https://static.1000.menu/img/content/21458/-salat-cezar-s-kr-salat-cezar-s-krevetkami-s-maionezom_1501173720_1_max.jpg",
+          "id": 1,
+          "count": 1,
+          "price": 12
+        },
+        {
+          "title": "Pizza Margherita",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Pizza_Margherita_stu_spivack.jpg/1024px-Pizza_Margherita_stu_spivack.jpg",
+          "id": 2,
+          "count": 1,
+          "price": 10
+        },
+        {
+          "title": "Pizza Napoletana",
+          "url": "https://www.pizzanapoletana.org/struttura/pagine_bicolor/mobile/decalogo_avpn_1.jpg",
+          "id": 3,
+          "count": 1,
+          "price": 13
+        }
+      ],
+      "id": 5
     }
   ],
   "bank": {
