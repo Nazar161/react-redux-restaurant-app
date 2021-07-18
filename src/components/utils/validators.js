@@ -10,7 +10,7 @@ export const maxLengthCreator = maxLength => value => {
 
 export const emailValidation = value => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (!re.test(String(value).toLowerCase())) {
+    if (!re.test(String(value).toLowerCase()) && value) {
         return 'некорректный email'
     }
     return undefined
