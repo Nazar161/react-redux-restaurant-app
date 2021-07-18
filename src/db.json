@@ -38,137 +38,12 @@
   ],
   "orders": [
     {
-      "phone": "+79896124533",
-      "email": "nazaret155@mai.ru",
-      "address": "пер. Белоусова 4/1",
-      "name": "Назарет",
-      "id_order": 43273071,
-      "total": 35,
-      "items": [
-        {
-          "title": "Cesar salad",
-          "url": "https://static.1000.menu/img/content/21458/-salat-cezar-s-kr-salat-cezar-s-krevetkami-s-maionezom_1501173720_1_max.jpg",
-          "id": 1,
-          "count": 1,
-          "price": 12
-        },
-        {
-          "title": "Pizza Margherita",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Pizza_Margherita_stu_spivack.jpg/1024px-Pizza_Margherita_stu_spivack.jpg",
-          "id": 2,
-          "count": 1,
-          "price": 10
-        },
-        {
-          "title": "Pizza Napoletana",
-          "url": "https://www.pizzanapoletana.org/struttura/pagine_bicolor/mobile/decalogo_avpn_1.jpg",
-          "id": 3,
-          "count": 1,
-          "price": 13
-        }
-      ],
-      "response": true,
-      "id": 1
-    },
-    {
-      "name": "цвйцвйц",
-      "phone": "894849",
-      "id_order": 46478328,
-      "total": 48,
-      "items": [
-        {
-          "title": "Pizza Margherita",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Pizza_Margherita_stu_spivack.jpg/1024px-Pizza_Margherita_stu_spivack.jpg",
-          "id": 2,
-          "count": 1,
-          "price": 10
-        },
-        {
-          "title": "Pizza Napoletana",
-          "url": "https://www.pizzanapoletana.org/struttura/pagine_bicolor/mobile/decalogo_avpn_1.jpg",
-          "id": 3,
-          "count": 1,
-          "price": 13
-        },
-        {
-          "title": "Cowboy Steak",
-          "url": "https://i.cbc.ca/1.4491288.1516208229!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/cowboysteak.jpg",
-          "id": 5,
-          "count": 1,
-          "price": 25
-        }
-      ],
-      "response": true,
-      "id": 2
-    },
-    {
-      "name": "Hrewfwefwef",
-      "phone": "8498999999999999999",
-      "id_order": 63306386,
-      "total": 23,
-      "items": [
-        {
-          "title": "Pizza Margherita",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Pizza_Margherita_stu_spivack.jpg/1024px-Pizza_Margherita_stu_spivack.jpg",
-          "id": 2,
-          "count": 1,
-          "price": 10
-        },
-        {
-          "title": "Pizza Napoletana",
-          "url": "https://www.pizzanapoletana.org/struttura/pagine_bicolor/mobile/decalogo_avpn_1.jpg",
-          "id": 3,
-          "count": 1,
-          "price": 13
-        }
-      ],
-      "id": 3
-    },
-    {
-      "phone": "777777777777",
-      "name": "aaaaaaaaaaaaaaaa",
-      "id_order": 3705718,
-      "total": 71,
-      "items": [
-        {
-          "title": "Pizza Napoletana",
-          "url": "https://www.pizzanapoletana.org/struttura/pagine_bicolor/mobile/decalogo_avpn_1.jpg",
-          "id": 3,
-          "count": 2,
-          "price": 26
-        },
-        {
-          "title": "Pizza Margherita",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Pizza_Margherita_stu_spivack.jpg/1024px-Pizza_Margherita_stu_spivack.jpg",
-          "id": 2,
-          "count": 2,
-          "price": 20
-        },
-        {
-          "title": "Cowboy Steak",
-          "url": "https://i.cbc.ca/1.4491288.1516208229!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/cowboysteak.jpg",
-          "id": 5,
-          "count": 1,
-          "price": 25
-        }
-      ],
-      "id": 4
-    },
-    {
       "name": "Назарет",
       "phone": "9896124533",
-      "email": "nazaret155@mail.ru",
-      "address": "г. Ростов-на-Дону, пер. Белоусова 1/4",
-      "id_order": 7149027,
-      "total": 35,
+      "address": "Большая Садовая ул., 69, Ростов-на-Дону, Ростовская обл., Россия, 344002",
+      "id_order": 63190111,
+      "total": 56,
       "items": [
-        {
-          "title": "Cesar salad",
-          "url": "https://static.1000.menu/img/content/21458/-salat-cezar-s-kr-salat-cezar-s-krevetkami-s-maionezom_1501173720_1_max.jpg",
-          "id": 1,
-          "count": 1,
-          "price": 12
-        },
         {
           "title": "Pizza Margherita",
           "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Pizza_Margherita_stu_spivack.jpg/1024px-Pizza_Margherita_stu_spivack.jpg",
@@ -182,9 +57,23 @@
           "id": 3,
           "count": 1,
           "price": 13
+        },
+        {
+          "title": "Cowboy Steak",
+          "url": "https://i.cbc.ca/1.4491288.1516208229!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/cowboysteak.jpg",
+          "id": 5,
+          "count": 1,
+          "price": 25
+        },
+        {
+          "title": "Greece salad",
+          "url": "https://assets.epicurious.com/photos/576454fb42e4a5ed66d1df6b/master/pass/greek-salad.jpg",
+          "id": 4,
+          "count": 1,
+          "price": 8
         }
       ],
-      "id": 5
+      "id": 1
     }
   ],
   "bank": {
