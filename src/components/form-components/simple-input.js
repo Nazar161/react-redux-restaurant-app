@@ -11,8 +11,6 @@ const SimpleInput = ({input, meta, ...props}) => {
         }
     }
 
-    console.log(meta);
-
     return(
         <div>
             <div>
