@@ -7,6 +7,7 @@ import Payment from '../payment/Payment';
 import { required, maxLengthCreator, emailValidation} from '../utils/validators';
 import SimpleInput from '../form-components/simple-input';
 import { createTextMask } from 'redux-form-input-masks';
+import CustomGoogleAutocomplete from '../google/CustomGoogleAutocomplete'
 
 const CheckoutPage = ({addingOrderInfo, datass}) => {
     const [paymentPage, setPaymentPage] = useState('order-form')
@@ -54,7 +55,8 @@ const phoneMask = createTextMask({
     pattern: '+7(999) 999-99-99',
   });
 
-const OrderForm = ({handleSubmit, submitting, pristine}) => {
+
+const OrderForm = ({handleSubmit, submitting, pristine}) => {   
     return(
         <form className='checkout_block_form' onSubmit={handleSubmit}>
             <div className='form-style'>
@@ -94,8 +96,9 @@ const OrderForm = ({handleSubmit, submitting, pristine}) => {
                         type='text' 
                         name='address'
                         placeholder='Ваш адрес ...'
-                        component={SimpleInput}
+                        component={CustomGoogleAutocomplete}
                         validate={[required]}
+                        id='search'
                         />
             </div>
             <div className='form-style'>
